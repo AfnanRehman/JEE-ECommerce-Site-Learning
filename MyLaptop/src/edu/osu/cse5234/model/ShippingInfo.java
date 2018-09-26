@@ -1,7 +1,7 @@
 package edu.osu.cse5234.model;
 
 public class ShippingInfo {
-
+//comment
 	private String name = null;
 	private String addLine1 = null;
 	private String addLine2 = null;
