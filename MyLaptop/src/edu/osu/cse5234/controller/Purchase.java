@@ -23,6 +23,7 @@ public class Purchase {
 		String price="";
 		String quantity="";
 
+		
 		for(int i=1;i<6;i++) {
 			Item item=new Item();
 			item.setName(name+i);
