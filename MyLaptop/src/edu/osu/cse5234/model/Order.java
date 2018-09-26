@@ -1,31 +1,25 @@
 package edu.osu.cse5234.model;
 
+import java.util.ArrayList;
+
 public class Order {
-	private String MacBook = null;
-	private String Dell = null;
-	private String Hp = null;
+	
+	private String orderNumber = null;
+	private ArrayList<Item> itemList=null;
 	
 	public Order() { }
 	
-	public String getMacBook() {
-		return MacBook;		
+	public String getOrderNumber() {
+		return orderNumber;		
+	}
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
 	}
 	
-	public String getDell() {
-		return Dell;
+	public ArrayList<Item> getItemList() {
+		return itemList;		
 	}
-	
-	public String getHp() {
-		return Hp;
-	}
-	
-	public void setMacBook(String MacBook) {
-		this.MacBook = MacBook;
-	}
-	public void setDell(String Dell) {
-		this.Dell = Dell;
-	}
-	public void setHp(String Hp) {
-		this.Hp = Hp;
+	public void setItemList(ArrayList<Item> itemList) {
+		this.itemList = itemList;
 	}
 }
