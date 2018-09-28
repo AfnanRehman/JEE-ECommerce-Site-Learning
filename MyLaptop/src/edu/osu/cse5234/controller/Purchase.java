@@ -47,7 +47,7 @@ public class Purchase {
 
 	@RequestMapping(path = "/paymentEntry", method = RequestMethod.GET)
 	public String viewPaymentEntryPage(HttpServletRequest request, HttpServletResponse response) {
-		request.setAttribute("payment", new PaymentInfo());
+		request.setAttribute("paymentInfo", new PaymentInfo());
 		return "PaymentEntryForm";
 	}
 
