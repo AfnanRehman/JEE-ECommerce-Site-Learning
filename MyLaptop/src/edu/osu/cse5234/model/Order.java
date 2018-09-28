@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Order {
 	
 	private String orderNumber = null;
-	private ArrayList<Item> itemList=null;
+	private ArrayList<Item> items=null;
 	
 	public Order() { }
 	
@@ -16,10 +16,10 @@ public class Order {
 		this.orderNumber = orderNumber;
 	}
 	
-	public ArrayList<Item> getItemList() {
-		return itemList;		
+	public ArrayList<Item> getItems() {
+		return items;		
 	}
-	public void setItemList(ArrayList<Item> itemList) {
-		this.itemList = itemList;
+	public void setItems(ArrayList<Item> items) {
+		this.items = items;
 	}
 }
