@@ -17,7 +17,7 @@
 			<tr>
 				<th>Name</th>
 				<th>Card Number</th>
-				<th>CCV Code</th>
+				<th>CVV Code</th>
 				<th>Expiration Date</th>
 			</tr>
 
