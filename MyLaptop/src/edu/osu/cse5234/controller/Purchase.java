@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import edu.osu.cse5234.model.*;
-//import edu.osu.cse5234.model.*;
+
 
 @Controller
 @RequestMapping("/purchase")
@@ -23,7 +23,7 @@ public class Purchase {
 		Order order = new Order();
 		String name = "item";
 		String price = "";
-//		String quantity = "";
+
 
 		for (int i = 1; i < 6; i++) {
 			Item item = new Item();
