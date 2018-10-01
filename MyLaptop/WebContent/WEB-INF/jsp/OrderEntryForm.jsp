@@ -25,8 +25,8 @@
 					<td><c:out value="${item.name}"/>
 						<form:hidden path = "items[${loop.index}].name" value="${item.name}"/>
 					</td>
-					<td><c:out value="${item.price}"/>
-						<form:hidden path = "items[${loop.index}].price" value="${item.price}"/>
+					<td><c:out value="$${item.price}"/>
+						<form:hidden path = "items[${loop.index}].price" value="$${item.price}"/>
 					</td>
 					<td><form:input path="items[${loop.index}].quantity" /></td>
 				</tr>

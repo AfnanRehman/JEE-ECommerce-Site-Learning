@@ -13,6 +13,9 @@
 <form:form modelAttribute="confirmedorder" method="post">
 		<table border="1" width=900>
 			<tr>
+				<th>Confirmation Number: 12345</th>
+			</tr>
+			<tr>
 				<th>Name</th>
 				<th>Price</th>
 				<th>Quantity</th>
@@ -20,7 +23,7 @@
 			<c:forEach items="${confirmedorder.items}" var="item" varStatus="loop">
 				<tr>
 					<td><form:input path = "items[${loop.index}].name" readonly = "True"/></td>
-					<td><form:input path = "items[${loop.index}].price" /></td>
+					<td><form:input path = "items[${loop.index}].price" readonly = "True"/></td>
 					<td><form:input path="items[${loop.index}].quantity" /></td>
 				</tr>
 			</c:forEach>
