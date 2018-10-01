@@ -18,22 +18,22 @@ public class Purchase {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// Order order = request.getAttribute("order");
 		ArrayList<Item> itemList = new ArrayList<>();
 		Order order = new Order();
-		String name = "item";
-		String price = "";
+		String name = "";
+		String price = "10";
+		String[] laptops = {"", "MacBook", "Lenovo", "HP", "Dell", "Thinkpad"};
 
 
 		for (int i = 1; i < 6; i++) {
 			Item item = new Item();
-			item.setName(name + i);
-			item.setPrice(price + i);
+			item.setName(name + laptops[i]);
+			item.setPrice(price + (i*4));
 			item.setQuantity("");
 			itemList.add(item);
 		}
 		order.setItems(itemList);
-		order.setOrderNumber(itemList.size() + "");
+		order.setOrderNumber(itemList.size() + "2018");
 		request.setAttribute("order", order);
 		return "OrderEntryForm";
 	}
@@ -46,33 +46,46 @@ public class Purchase {
 	}
 
 	@RequestMapping(path = "/paymentEntry", method = RequestMethod.GET)
-	public String viewPaymentEntryPage(HttpServletRequest request, HttpServletResponse response) {
-		request.setAttribute("paymentInfo", new PaymentInfo());
+	public String viewPaymentEntryPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		PaymentInfo payment = new PaymentInfo();
+
+		payment.setHolderName("");
+		payment.setccNumber("");
+		payment.setcvvCode("");
+		payment.setexpDate("");
+		request.setAttribute("payment", payment);
 		return "PaymentEntryForm";
 	}
 
 	@RequestMapping(path = "/submitPayment", method = RequestMethod.POST)
-	public String submitPayment(@ModelAttribute("paymentInfo") PaymentInfo paymentInfo, HttpServletRequest request) {
-		request.getSession().setAttribute("paymentInfo", paymentInfo);
+	public String submitPayment(@ModelAttribute("payment") PaymentInfo payment, HttpServletRequest request) {
+		request.getSession().setAttribute("payment", payment);
 		return "redirect:/purchase/shippingEntry";
 	}
 
 	@RequestMapping(path = "/shippingEntry", method = RequestMethod.GET)
 	public String viewShippingEntryPage(HttpServletRequest request, HttpServletResponse response) {
-		request.setAttribute("payment", new ShippingInfo());
+		ShippingInfo shipping = new ShippingInfo();
+
+		shipping.setName("");
+		shipping.setAddLine1("");
+		shipping.setAddLine2("");
+		shipping.setCity("");
+		shipping.setState("");
+		shipping.setZip("");
+		request.setAttribute("shipping", shipping);
 		return "ShippingEntryForm";
 	}
-
+	
 	@RequestMapping(path = "/submitShipping", method = RequestMethod.POST)
 	public String submitShipping(@ModelAttribute("shippingInfo") ShippingInfo shippingInfo,
 			HttpServletRequest request) {
-		request.getSession().setAttribute("paymentInfo", shippingInfo);
+		request.getSession().setAttribute("shippingInfo", shippingInfo);
 		return "redirect:/purchase/viewOrder";
 	}
 
 	@RequestMapping(path = "/viewOrder", method = RequestMethod.GET)
 	public String viewOrder(HttpServletRequest request, HttpServletResponse response) {
-		request.setAttribute("payment", new Order());
 		return "ViewOrder";
 	}
 
@@ -87,5 +100,4 @@ public class Purchase {
 		// display order detail.
 		return "Confirmation";
 	}
-	
 }
