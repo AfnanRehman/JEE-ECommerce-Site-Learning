@@ -49,10 +49,10 @@ public class Purchase {
 	public String viewPaymentEntryPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //		Order order = (Order)request.getSession().getAttribute("order");
 		PaymentInfo payment = new PaymentInfo();
-		payment.setHolderName("Holder");
-		payment.setccNumber("123456789");
-		payment.setcvvCode("110");
-		payment.setexpDate("9/22");
+		payment.setHolderName("");
+		payment.setccNumber("");
+		payment.setcvvCode("");
+		payment.setexpDate("");
 		request.setAttribute("payment", payment);
 		
 		return "PaymentEntryForm";
@@ -68,12 +68,12 @@ public class Purchase {
 	public String viewShippingEntryPage(HttpServletRequest request, HttpServletResponse response) {
 		ShippingInfo shipping = new ShippingInfo();
 
-		shipping.setName("AddressLiver");
-		shipping.setAddLine1("addline1");
-		shipping.setAddLine2("addline2");
-		shipping.setCity("Columbus");
-		shipping.setState("Ohio");
-		shipping.setZip("43202");
+		shipping.setName("");
+		shipping.setAddLine1("");
+		shipping.setAddLine2("");
+		shipping.setCity("");
+		shipping.setState("");
+		shipping.setZip("");
 		request.setAttribute("shipping", shipping);
 		return "ShippingEntryForm";
 	}
