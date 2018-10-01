@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>   
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -7,34 +7,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Team 7 Laptop Emporium</title>
+<title>Enter Payment Information</title>
 </head>
 <body>
-	<form:form modelAttribute="paymentInfo" method="post"
-		action="purchase/submitPayment">
+	<form:form modelAttribute="payment" method="post"
+		action="submitPayment">
 
-		<table border="1" width=900>
+    	<table border="1" width=900>
+    		<tr>
+    			<th>Name</th>
+    			<th>Card Number</th>
+    			<th>CVV Code</th>
+    			<th>Expiration Date</th>
+    		</tr>
 			<tr>
-				<th>Name</th>
-				<th>Card Number</th>
-				<th>CVV Code</th>
-				<th>Expiration Date</th>
+				<td><form:input type="text" path="holderName" /></td>
+				<td><form:input type="text" path="ccNumber" /></td>
+				<td><form:input type="text" path="cvvCode" /></td>
+				<td><form:input type="text" path="expDate" /></td>
 			</tr>
-
-			<tr>
-				<td><form:input path="holderName" /></td>
-				<td><form:input path="ccNumber" /></td>
-				<td><form:input path="cvvCode" /></td>
-				<td><form:input path="expDate" /></td>
-			</tr>
-
-
-			<tr>
-				<td colspan="2"><input type="submit" value="Purchase"></td>
-			</tr>
-
-
-		</table>
+	  		<tr>
+				<td colspan="2"><input type="submit" value="Shipping"></td>
+	  		</tr>
+    	</table>
 	</form:form>
 </body>
 </html>
