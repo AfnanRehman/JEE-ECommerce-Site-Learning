@@ -34,7 +34,7 @@ public class ShippingInfo {
 		return zip;
 	}
 	
-	public void setname(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public void setAddLine1(String addLine1) {
