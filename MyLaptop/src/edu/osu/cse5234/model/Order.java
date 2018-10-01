@@ -7,9 +7,11 @@ public class Order {
 	
 	private String orderNumber = null;
 	private ArrayList<Item> items=null;
-	
+	private boolean confirmed = false;
 	public Order() { }
-	
+	public void confirm() {
+		confirmed = true;
+	}
 	public String getOrderNumber() {
 		return orderNumber;		
 	}

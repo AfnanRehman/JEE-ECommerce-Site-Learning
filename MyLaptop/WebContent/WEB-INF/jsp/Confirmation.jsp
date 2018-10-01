@@ -10,21 +10,25 @@
 <title>Order Confirmation</title>
 </head>
 <body>
-<table border="1" width=900>
+<form:form modelAttribute="confirmedorder" method="post">
+		<table border="1" width=900>
 			<tr>
 				<th>Name</th>
 				<th>Price</th>
 				<th>Quantity</th>
 			</tr>
-			<c:forEach items="${order.items}" var="item" varStatus="loop">
+			<c:forEach items="${confirmedorder.items}" var="item" varStatus="loop">
 				<tr>
-					<td><%= request.getAttribute("${item.name}") %></td>
-					<td><%= request.getAttribute("$${item.price}") %></td>
-					<td><%= request.getAttribute("items[${loop.index}].quantity") %></td>
+					<td><form:input path = "items[${loop.index}].name" readonly = "True"/></td>
+					<td><form:input path = "items[${loop.index}].price" /></td>
+					<td><form:input path="items[${loop.index}].quantity" /></td>
 				</tr>
 			</c:forEach>
 		</table>
-		<table border="1" width=900>
+	</form:form>
+	<form:form modelAttribute="payment" method="post">
+
+    	<table border="1" width=900>
     		<tr>
     			<th>Name</th>
     			<th>Card Number</th>
@@ -32,29 +36,32 @@
     			<th>Expiration Date</th>
     		</tr>
 			<tr>
-				<td><%= request.getAttribute("${holderName}") %></td>
-				<td><%= request.getAttribute("${ccNumber}") %></td>
-				<td><%= request.getAttribute("${cvvCode}") %></td>
-				<td><%= request.getAttribute("${expDate}") %></td>
+				<td><form:input type="text" path="holderName" /></td>
+				<td><form:input type="text" path="ccNumber" /></td>
+				<td><form:input type="text" path="cvvCode" /></td>
+				<td><form:input type="text" path="expDate" /></td>
 			</tr>
     	</table>
+	</form:form>
+	<form:form modelAttribute="shipping" method="post" action="submitShipping">
     	<table border="1" width=900>
-	    	<tr>
-	    		<th>Name</th>
-	    		<th>Address Line 1</th>
-	    		<th>Address Line 2</th>
-	    		<th>City</th>
-	    		<th>State</th>
-	    		<th>ZIP</th>
-	    	</tr>
-			<tr>
-				<td><%= request.getAttribute("${name}") %></td>
-				<td><%= request.getAttribute("${addLine1}") %></td>
-				<td><%= request.getAttribute("${addLine2}") %></td>
-				<td><%= request.getAttribute("${city}") %></td>
-				<td><%= request.getAttribute("${state}") %></td>
-				<td><%= request.getAttribute("${zip}") %></td>
-			</tr>
+    	<tr>
+    		<th>Name</th>
+    		<th>Address Line 1</th>
+    		<th>Address Line 2</th>
+    		<th>City</th>
+    		<th>State</th>
+    		<th>ZIP</th>
+    	</tr>
+		<tr>
+			<td><form:input type="text" path="name" /></td>
+			<td><form:input type="text" path="addLine1" /></td>
+			<td><form:input type="text" path="addLine2" /></td>
+			<td><form:input type="text" path="city" /></td>
+			<td><form:input type="text" path="state" /></td>
+			<td><form:input type="text" path="zip" /></td>
+		</tr>
     	</table>
+	</form:form>
 </body>
 </html>

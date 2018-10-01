@@ -29,7 +29,7 @@ public class Purchase {
 			Item item = new Item();
 			item.setName(name + laptops[i]);
 			item.setPrice(price + (i*4));
-			item.setQuantity("");
+			item.setQuantity("1");
 			itemList.add(item);
 		}
 		order.setItems(itemList);
@@ -47,13 +47,14 @@ public class Purchase {
 
 	@RequestMapping(path = "/paymentEntry", method = RequestMethod.GET)
 	public String viewPaymentEntryPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//		Order order = (Order)request.getSession().getAttribute("order");
 		PaymentInfo payment = new PaymentInfo();
-
-		payment.setHolderName("");
-		payment.setccNumber("");
-		payment.setcvvCode("");
-		payment.setexpDate("");
+		payment.setHolderName("Holder");
+		payment.setccNumber("123456789");
+		payment.setcvvCode("110");
+		payment.setexpDate("9/22");
 		request.setAttribute("payment", payment);
+		
 		return "PaymentEntryForm";
 	}
 
@@ -67,12 +68,12 @@ public class Purchase {
 	public String viewShippingEntryPage(HttpServletRequest request, HttpServletResponse response) {
 		ShippingInfo shipping = new ShippingInfo();
 
-		shipping.setName("");
-		shipping.setAddLine1("");
-		shipping.setAddLine2("");
-		shipping.setCity("");
-		shipping.setState("");
-		shipping.setZip("");
+		shipping.setName("AddressLiver");
+		shipping.setAddLine1("addline1");
+		shipping.setAddLine2("addline2");
+		shipping.setCity("Columbus");
+		shipping.setState("Ohio");
+		shipping.setZip("43202");
 		request.setAttribute("shipping", shipping);
 		return "ShippingEntryForm";
 	}
@@ -86,18 +87,23 @@ public class Purchase {
 
 	@RequestMapping(path = "/viewOrder", method = RequestMethod.GET)
 	public String viewOrder(HttpServletRequest request, HttpServletResponse response) {
+		Order order = (Order)request.getSession().getAttribute("order");
+		request.setAttribute("vieworder", order);
 		return "ViewOrder";
 	}
 
 	@RequestMapping(path = "/confirmOrder", method = RequestMethod.POST)
 	public String confirmOrder(@ModelAttribute("order") Order order, HttpServletRequest request) {
-		request.getSession().setAttribute("order", order);
+		order.confirm();
 		return "redirect:/purchase/viewConfirmation";
 	}
 
 	@RequestMapping(path = "/viewConfirmation", method = RequestMethod.GET)
 	public String viewConfirmation(HttpServletRequest request, HttpServletResponse response) {
 		// display order detail.
+		request.setAttribute("confirmedorder", request.getSession().getAttribute("order"));
+		request.setAttribute("payment", request.getSession().getAttribute("payment"));	
+		request.setAttribute("shipping", request.getSession().getAttribute("shippingInfo"));	
 		return "Confirmation";
 	}
 }

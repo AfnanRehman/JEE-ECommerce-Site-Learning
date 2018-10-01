@@ -19,14 +19,14 @@
 				<th>Quantity</th>
 				<th>Order ID</th>
 			</tr>
-			
-			<tr>
-				<td><%= request.getAttribute("item.name") %></td>
-				<td><%= request.getAttribute("item.price") %></td>
-				<td><%= request.getAttribute("items[0].quantity") %></td>
-				<td><%= request.getAttribute("order.orderNumber") %></td>
-			</tr>
-			
+			<c:forEach items="${vieworder.items}" var="item" varStatus="loop">
+				<tr>
+					<td><form:input path = "items[${loop.index}].name" readonly = "True"/></td>
+					<td><form:input path = "items[${loop.index}].price" /></td>
+					<td><form:input path="items[${loop.index}].quantity" /></td>
+					<td><form:input type="text" path="orderNumber"/></td>
+				</tr>
+			</c:forEach>
 			<tr>
 				<td colspan="2"><input type="submit" value="Confirm"></td>
 			</tr>
