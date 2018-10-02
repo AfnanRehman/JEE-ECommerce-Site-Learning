@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="mystyle.css">
-<title>Insert title here</title>
+<title>MyLaptop Inc</title>
 </head>
 <body>
 
