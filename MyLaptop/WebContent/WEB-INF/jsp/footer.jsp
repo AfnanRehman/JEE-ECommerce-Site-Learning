@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="footer">
+&copy All rights reserved 2018
+</div>
 
 </body>
 </html>
