@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/")
 public class Homepage {
+	@RequestMapping(method = RequestMethod.GET)
+ 	public String viewHome(HttpServletRequest request, HttpServletResponse respons) {
+ 		return "home";
+ 	}
 
 }
