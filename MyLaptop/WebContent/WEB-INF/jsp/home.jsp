@@ -15,6 +15,10 @@
 
 
 <br>
+<h2 align="center">Our Mission</h2>
+<p align="center">
+Our mission is to provide used laptops and technology to the masses at competitive prices.
+</p>
 <br>
 <jsp:include page="footer.jsp" />
 
