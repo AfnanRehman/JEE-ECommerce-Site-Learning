@@ -1,4 +1,5 @@
 <div class="header">
+<h1>MyLaptop Inc</h1>
 <nav >
   <a href="/MyLaptop/">Home</a> 
   <a href="/MyLaptop/purchase">Shop</a>

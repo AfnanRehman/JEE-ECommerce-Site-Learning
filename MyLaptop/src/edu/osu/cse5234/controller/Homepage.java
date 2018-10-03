@@ -15,5 +15,16 @@ public class Homepage {
  	public String viewHome(HttpServletRequest request, HttpServletResponse respons) {
  		return "home";
  	}
+	
+	
+	@RequestMapping(path="about", method = RequestMethod.GET)
+ 	public String viewAboutUs(HttpServletRequest request, HttpServletResponse respons) {
+ 		return "AboutUs";
+ 	}
+	
+	@RequestMapping(path="contact", method = RequestMethod.GET)
+ 	public String viewContactUs(HttpServletRequest request, HttpServletResponse respons) {
+ 		return "ContactUs";
+ 	}
 
 }
