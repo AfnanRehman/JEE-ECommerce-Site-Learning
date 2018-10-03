@@ -19,6 +19,20 @@
 <p align="center">
 Our mission is to provide used laptops and technology to the masses at competitive prices.
 </p>
+<h2 align="center">Our Vision</h2>
+<p align="center">
+Our mission is to provide used laptops and technology to the masses at competitive prices.
+</p>
+<h2 align="center">Our Business Strategy</h2>
+<p align="center">
+...
+</p><h2 align="center">Products offer</h2>
+<p align="center">
+
+</p><h2 align="center">Our Vision</h2>
+<p align="center">
+Our mission is to provide used laptops and technology to the masses at competitive prices.
+</p>
 <br>
 <jsp:include page="footer.jsp" />
 

@@ -60,7 +60,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     	</table>
 	</form:form>
 	<div style="overflow-x:auto;">
-	<form:form modelAttribute="shipping" method="post" action="submitShipping">
+	<form:form modelAttribute="shipping" method="post" action="/MyLaptop">
     	<table border="1" width=900>
     	<tr>
     		<th>Name</th>
@@ -77,6 +77,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 			<td><form:input type="text" path="city" /></td>
 			<td><form:input type="text" path="state" /></td>
 			<td><form:input type="text" path="zip" /></td>
+		</tr>
+		<tr>
+				<td colspan="2"><input type="submit" value="Return"></td>
 		</tr>
     	</table>
 	</form:form>

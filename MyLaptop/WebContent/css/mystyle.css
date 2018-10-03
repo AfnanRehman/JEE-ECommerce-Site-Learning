@@ -59,6 +59,7 @@ table {
 	margin-top: 20px;
 }
 
+
 td, td.center-col {
 	height: 40px;
 }
@@ -76,6 +77,7 @@ th {
 	color: #424242;
 	border:1pt solid #808080;
 }
+
 
 td.tot {
 	color: #424242;
