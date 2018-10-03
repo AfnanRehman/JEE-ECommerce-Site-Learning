@@ -9,6 +9,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Order Confirmation</title>
 <style>
+html {
+	color: #2E2E2E;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #F2F2F2;
+	max-width: 980px;
+}
 table {
     border-collapse: collapse;
     width: 100%;
@@ -23,6 +29,10 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 </head>
 <body>
+<jsp:include page="header.jsp" />
+
+
+<br>
 <form:form modelAttribute="confirmedorder" method="post">
 		<table border="1" width=900>
 			<tr>

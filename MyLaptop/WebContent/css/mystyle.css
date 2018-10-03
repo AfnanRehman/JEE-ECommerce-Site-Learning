@@ -15,7 +15,7 @@ body {
 
 
 .header {
-	padding: 10px;
+	padding: 0px;
 	width: 100%;
 	text-align: center;
 	background-color: #F2F2F2;
@@ -57,6 +57,7 @@ body {
 table {
 	width: 80%;
 	margin-top: 20px;
+	align: center;
 }
 
 
@@ -83,6 +84,9 @@ td.tot {
 	color: #424242;
 	border:1pt solid #808080;
 }
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
 .tableContainer {
 	padding-left: 20px;
 }

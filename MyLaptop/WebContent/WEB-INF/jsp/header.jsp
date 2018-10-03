@@ -1,6 +1,6 @@
 <div class="header">
 <h1>MyLaptop Inc</h1>
-<nav >
+<nav>
   <a href="/MyLaptop/">Home</a> 
   <a href="/MyLaptop/purchase">Shop</a>
   <a href="/MyLaptop/about">About Us</a> 
