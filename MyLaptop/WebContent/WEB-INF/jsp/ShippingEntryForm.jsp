@@ -60,5 +60,8 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     	</table>
 	</form:form>
 	</div>
+	
+<br>
+<jsp:include page="footer.jsp" />
 </body>
 </html>
