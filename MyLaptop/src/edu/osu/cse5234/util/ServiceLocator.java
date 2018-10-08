@@ -11,9 +11,16 @@ public class ServiceLocator {
 		try {
 			return (OrderProcessingServiceBean) InitialContext.doLookup(
 					"java:module/OrderProcessingServiceBean!edu.osu.cse5234.business.OrderProcessingServiceBean");
-			} catch (NamingException ne) {
-				throw new RuntimeException(ne);
-				}
+		} catch (NamingException ne) {
+			throw new RuntimeException(ne);
 		}
-
+	}
+	public static InventoryService getInventoryService() {
+		try {
+			return (OrderProcessingServiceBean) InitialContext.doLookup(
+					"\"java:global/MyLaptop-InventoryManagement-EJBEAR/MyLaptop-InventoryManagement-EJB/InventoryServiceBean!edu.osu.cse5234.business.view.InventoryService\"");
+		} catch (NamingException ne) {
+			throw new RuntimeException(ne);
+		}
+	}
 }
