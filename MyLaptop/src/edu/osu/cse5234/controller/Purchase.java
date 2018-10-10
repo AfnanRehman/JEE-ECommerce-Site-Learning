@@ -9,7 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import edu.osu.cse5234.business.view.Inventory;
+import edu.osu.cse5234.business.view.Item;
 import edu.osu.cse5234.model.*;
+import edu.osu.cse5234.util.ServiceLocator;
 
 
 @Controller
@@ -20,20 +24,9 @@ public class Purchase {
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ArrayList<Item> itemList = new ArrayList<>();
 		Order order = new Order();
-		String name = "";
-		String price = "10";
-		String[] laptops = {"", "MacBook", "Lenovo", "HP", "Dell", "Thinkpad"};
-
-
-		for (int i = 1; i < 6; i++) {
-			Item item = new Item();
-			item.setName(name + laptops[i]);
-			item.setPrice(price + (i*4));
-			item.setQuantity("1");
-			itemList.add(item);
-		}
-		order.setItems(itemList);
-		order.setOrderNumber(itemList.size() + "2018");
+		Inventory temp = ServiceLocator.getInventoryService().getAvailableInventory();
+		order.setItems(temp.getItems());
+		order.setOrderNumber("2018" + temp.getCode());
 		request.setAttribute("order", order);
 		return "OrderEntryForm";
 	}
