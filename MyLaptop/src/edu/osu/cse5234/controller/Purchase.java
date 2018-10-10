@@ -26,7 +26,7 @@ public class Purchase {
 		Order order = new Order();
 		Inventory temp = ServiceLocator.getInventoryService().getAvailableInventory();
 		order.setItems(temp.getItems());
-		order.setOrderNumber("2018" + temp.getCode());
+		order.setOrderNumber("2018");
 		request.setAttribute("order", order);
 		return "OrderEntryForm";
 	}
