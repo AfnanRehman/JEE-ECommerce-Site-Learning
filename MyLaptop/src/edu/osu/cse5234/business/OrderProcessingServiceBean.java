@@ -23,6 +23,8 @@ public class OrderProcessingServiceBean {
     	return ServiceLocator.getInventoryService().validateQuantity(order.getItems());
     }
     public String processOrder(Order order) {
-		return null; 
+    	this.validateItemAvailability(order);
+    	ServiceLocator.getInventoryService().updateInventory(order.getItems());
+    	return "confirmationCode";
 	}
 }

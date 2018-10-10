@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.osu.cse5234.business.OrderProcessingServiceBean;
 import edu.osu.cse5234.business.view.Inventory;
-import edu.osu.cse5234.business.view.Item;
+//import edu.osu.cse5234.business.view.Item;
 import edu.osu.cse5234.model.*;
 import edu.osu.cse5234.util.ServiceLocator;
 
@@ -19,10 +20,9 @@ import edu.osu.cse5234.util.ServiceLocator;
 @Controller
 @RequestMapping("/purchase")
 public class Purchase {
-
+	private OrderProcessingServiceBean orderProcessingServiceBean = new  OrderProcessingServiceBean();
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ArrayList<Item> itemList = new ArrayList<>();
 		Order order = new Order();
 		Inventory temp = ServiceLocator.getInventoryService().getAvailableInventory();
 		order.setItems(temp.getItems());
@@ -34,6 +34,9 @@ public class Purchase {
 
 	@RequestMapping(path = "/submitItems", method = RequestMethod.POST)
 	public String submitItems(@ModelAttribute("order") Order order, HttpServletRequest request) {
+		if (!orderProcessingServiceBean.validateItemAvailability(order)) {
+			return "redirect:/purchase";
+		};
 		request.getSession().setAttribute("order", order);
 		return "redirect:/purchase/paymentEntry";
 	}
@@ -86,8 +89,8 @@ public class Purchase {
 	}
 
 	@RequestMapping(path = "/confirmOrder", method = RequestMethod.POST)
-	public String confirmOrder(@ModelAttribute("order") Order order, HttpServletRequest request) {
-		order.confirm();
+	public String confirmOrder(@ModelAttribute("order")Order order, HttpServletRequest request) {
+		order.confirm(orderProcessingServiceBean.processOrder(order));
 		return "redirect:/purchase/viewConfirmation";
 	}
 

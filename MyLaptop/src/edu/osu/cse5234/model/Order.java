@@ -9,10 +9,10 @@ public class Order {
 	
 	private String orderNumber = null;
 	private ArrayList<Item> items=null;
-	private boolean confirmed = false;
+	private String confirmed = null;
 	public Order() { }
-	public void confirm() {
-		confirmed = true;
+	public void confirm(String code) {
+		confirmed = code;
 	}
 	public String getOrderNumber() {
 		return orderNumber;		
