@@ -1,19 +1,13 @@
 package edu.osu.cse5234.model;
 
-import java.util.ArrayList;
-
-import edu.osu.cse5234.business.view.Item;
+import java.util.List;
 
 public class Order {
 
 	
 	private String orderNumber = null;
-	private ArrayList<Item> items=null;
-	private String confirmed = null;
+	private List<Item> items=null;
 	public Order() { }
-	public void confirm(String code) {
-		confirmed = code;
-	}
 	public String getOrderNumber() {
 		return orderNumber;		
 	}
@@ -21,10 +15,10 @@ public class Order {
 		this.orderNumber = orderNumber;
 	}
 	
-	public ArrayList<Item> getItems() {
+	public List<Item> getItems() {
 		return items;		
 	}
-	public void setItems(ArrayList<Item> items) {
+	public void setItems(List<Item> items) {
 		this.items = items;
 	}
 }
