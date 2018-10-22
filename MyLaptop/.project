@@ -3,7 +3,8 @@
 	<name>MyLaptop</name>
 	<comment></comment>
 	<projects>
-		<project>MyLaptop-InventoryManagement-EJBClient</project>
+		<project>MyLaptop-EJBClient</project>
+		<project>MyLaptop-EJB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

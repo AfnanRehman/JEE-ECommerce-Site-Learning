@@ -22,5 +22,6 @@ public class ServiceLocator {
 		} catch (NamingException ne) {
 				throw new RuntimeException(ne);
 		}
+		
 	}
 }
