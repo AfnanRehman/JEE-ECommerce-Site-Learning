@@ -1,13 +1,33 @@
 package edu.osu.cse5234.model;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name="PAYMENT_INFO")
 public class PaymentInfo {
 
-	private String ccNumber = null;
-	private String expDate = null;
-	private String cvvCode = null;
-	private String holderName = null;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID")
+	private int id;
+	@Transient
+	private String ccNumber;
+	@Transient
+	private String expDate;
+	@Transient
+	private String cvvCode;
+	@Transient
+	private String holderName;
 
 	public PaymentInfo() { }
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public String getHolderName() {
 		return holderName;		
@@ -38,3 +58,4 @@ public class PaymentInfo {
 		this.cvvCode = cvvCode;
 	}
 }
+

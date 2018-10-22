@@ -1,5 +1,8 @@
 package edu.osu.cse5234.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,8 +26,12 @@ public class Purchase {
 		Order order = new Order();
 
 		Inventory in=ServiceLocator.getInventoryService().getAvailableInventory();
-		order.setItems(in.getList());
-		
+		List<LineItem> lineItems=new ArrayList<>();
+		for(Item item:in.getList()) {
+			lineItems.add(new LineItem(item));
+		}
+	
+		order.setLineItems(lineItems);
 		request.setAttribute("order", order);
 		
 		request.setAttribute("message", request.getSession().getAttribute("message"));
@@ -35,9 +42,16 @@ public class Purchase {
 
 	@RequestMapping(path = "/submitItems", method = RequestMethod.POST)
 	public String submitItems(@ModelAttribute("order") Order order, HttpServletRequest request) {
+		List<LineItem> lineItems=new ArrayList<>();
+		for(LineItem lItem:order.getLineItems()) {
+			if(lItem.getQuantity()>0) lineItems.add(lItem);
+		}
+		order.setLineItems(lineItems);
 		boolean isValid=ServiceLocator.getOrderProcessingService().validateItemAvailability(order);
 		request.getSession().setAttribute("message", "");
 		if(isValid) {
+
+//			order.truncateLineItems();
 			
 			request.getSession().setAttribute("order", order);
 			return "redirect:/purchase/paymentEntry";
@@ -90,7 +104,7 @@ public class Purchase {
 
 	@RequestMapping(path = "/confirmOrder", method = RequestMethod.POST)
 	public String confirmOrder(@ModelAttribute("order") Order order, HttpServletRequest request) {
-		String confirmCode=ServiceLocator.getOrderProcessingService().processOrder(order);
+		String confirmCode=ServiceLocator.getOrderProcessingService().processOrder((Order)request.getSession().getAttribute("order"));
 		request.getSession().setAttribute("confirmCode", confirmCode);
 		return "redirect:/purchase/viewConfirmation";
 	}
@@ -105,4 +119,3 @@ public class Purchase {
 		return "Confirmation";
 	}
 }
-
