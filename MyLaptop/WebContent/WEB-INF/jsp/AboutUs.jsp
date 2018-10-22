@@ -6,6 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 <title>About</title>
+<link rel="stylesheet" type="text/css" href="/MyLaptop/css/mystyle.css">
+<link rel="stylesheet" type="text/css" href="/MyLaptop/css/table.css">
 </head>
 <body>
 
@@ -20,36 +22,33 @@
 				<td><img src="images/xiao.jpeg" /></td>
 
 				<td>
-				<ul>
-				<li>Xiao Yue</li>
-				<li>CEO</li>
-				<li>Education: The Ohio State University
-				</li>
-				</ul>
+					<ul>
+						<li>Xiao Yue</li>
+						<li>CEO</li>
+						<li>Education: The Ohio State University</li>
+					</ul>
 				</td>
 			</tr>
 			<tr>
 				<td><img src="images/mingxin.jpeg" /></td>
 
 				<td>
-				<ul>
-				<li>Mingxin Lu</li>
-				<li>CTO</li>
-				<li>Education: The Ohio State University
-				</li>
-				</ul>
+					<ul>
+						<li>Mingxin Lu</li>
+						<li>CTO</li>
+						<li>Education: The Ohio State University</li>
+					</ul>
 				</td>
 			</tr>
 			<tr>
 				<td><img src="images/afnan.jpeg" /></td>
 
 				<td>
-				<ul>
-				<li>Afnan Rehman</li>
-				<li>CTO</li>
-				<li>Education: The Ohio State University
-				</li>
-				</ul>
+					<ul>
+						<li>Afnan Rehman</li>
+						<li>CFO</li>
+						<li>Education: The Ohio State University</li>
+					</ul>
 				</td>
 			</tr>
 		</table>

@@ -2,8 +2,10 @@ package edu.osu.cse5234.business;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-import edu.osu.cse5234.business.view.InventoryService;
+
 import edu.osu.cse5234.model.Order;
 import edu.osu.cse5234.util.ServiceLocator;
 
@@ -14,6 +16,9 @@ import edu.osu.cse5234.util.ServiceLocator;
 @LocalBean
 public class OrderProcessingServiceBean {
 	private int confirmationcode=0;
+	
+	@PersistenceContext
+	EntityManager entityManager;
 
     /**
      * Default constructor. 
@@ -24,10 +29,12 @@ public class OrderProcessingServiceBean {
     
     public String processOrder(Order order) {
     	// TODO
-    	InventoryService is=ServiceLocator.getInventoryService();
-    	if(is.validateQuantity(order.getItems())){
+    	
+    	if(validateItemAvailability(order)){
     		confirmationcode++;
-    		is.updateInventory(order.getItems());
+    		entityManager.persist(order);
+    		entityManager.flush();
+//    		is.updateInventory(order.getItems());
     		
     	}
     	
@@ -36,9 +43,7 @@ public class OrderProcessingServiceBean {
     }
     
     public boolean validateItemAvailability(Order order) {
-    	
     	return ServiceLocator.getInventoryService().validateQuantity(order.getItems());
     }
     
-
 }
