@@ -11,51 +11,56 @@ public class PaymentInfo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID")
 	private int id;
-	@Transient
+	@Column(name="CARD_NUM")
 	private String ccNumber;
-	@Transient
+	@Column(name="EXP_DATE")
 	private String expDate;
-	@Transient
+	@Column(name="CVV")
 	private String cvvCode;
-	@Transient
+	@Column(name="HOLDER_NAME")
 	private String holderName;
 
 	public PaymentInfo() { }
-	
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public String getHolderName() {
-		return holderName;		
-	}
-	
-	public String getccNumber() {
+
+	public String getCcNumber() {
 		return ccNumber;
 	}
-	
-	public String getexpDate() {
+
+	public void setCcNumber(String ccNumber) {
+		this.ccNumber = ccNumber;
+	}
+
+	public String getExpDate() {
 		return expDate;
 	}
-	
-	public String getcvvCode() {
+
+	public void setExpDate(String expDate) {
+		this.expDate = expDate;
+	}
+
+	public String getCvvCode() {
 		return cvvCode;
 	}
-	
+
+	public void setCvvCode(String cvvCode) {
+		this.cvvCode = cvvCode;
+	}
+
+	public String getHolderName() {
+		return holderName;
+	}
+
 	public void setHolderName(String holderName) {
 		this.holderName = holderName;
 	}
-	public void setccNumber(String ccNumber) {
-		this.ccNumber = ccNumber;
-	}
-	public void setexpDate(String expDate) {
-		this.expDate = expDate;
-	}
-	public void setcvvCode(String cvvCode) {
-		this.cvvCode = cvvCode;
-	}
+	
+	
 }
-

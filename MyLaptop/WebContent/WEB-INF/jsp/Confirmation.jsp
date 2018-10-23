@@ -36,47 +36,47 @@ tr:nth-child(even) {
 <body>
 	<jsp:include page="header.jsp" />
 
-	<form:form modelAttribute="confirmedorder" method="post">
-		<table border="1" width=900>
-			<tr>
-				<th>Confirmation Number: <c:out value="${confirmCode}" /></th>
-			</tr>
-			<tr>
-				<th>Name</th>
-				<th>Price</th>
-				<th>Quantity</th>
-			</tr>
-			<c:forEach items="${confirmedorder.items}" var="item"
-				varStatus="loop">
-				<tr>
-					<td><form:input path="items[${loop.index}].name"
-							readonly="True" /></td>
-					<td><form:input path="items[${loop.index}].price"
-							readonly="True" /></td>
-					<td><form:input path="items[${loop.index}].quantity" /></td>
-				</tr>
-			</c:forEach>
-		</table>
-	</form:form>
-	<form:form modelAttribute="payment" method="post">
 
-		<table border="1" width=900>
+	<table border="1" width=900>
+		<tr>
+			<th>Confirmation Number: <c:out value="${confirmCode}" /></th>
+		</tr>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Quantity</th>
+		</tr>
+		<c:forEach items="${order.lineItems}" var="item" varStatus="loop">
 			<tr>
-				<th>Name</th>
-				<th>Card Number</th>
-				<th>CVV Code</th>
-				<th>Expiration Date</th>
+				<td><c:out value="${item.itemName}" /></td>
+				<td><c:out value="${item.price}" /></td>
+				<td><c:out value="${item.quantity}" /></td>
 			</tr>
-			<tr>
-				<td><form:input type="text" path="holderName" /></td>
-				<td><form:input type="text" path="ccNumber" /></td>
-				<td><form:input type="text" path="cvvCode" /></td>
-				<td><form:input type="text" path="expDate" /></td>
-			</tr>
-		</table>
-	</form:form>
+		</c:forEach>
+	</table>
+
+
+	<table border="1" width=900>
+		<tr>
+			<th>Name</th>
+			<th>Card Number</th>
+			<th>CVV Code</th>
+			<th>Expiration Date</th>
+		</tr>
+		<tr>
+		<td><c:out value="${payment.holderName}" /></td>
+		<td><c:out value="${payment.ccNumber}" /></td>
+		<td><c:out value="${payment.cvvCode}" /></td>
+		<td><c:out value="${payment.expDate}" /></td>
+			<%-- <td><form:input type="text" path="holderName" /></td>
+			<td><form:input type="text" path="ccNumber" /></td>
+			<td><form:input type="text" path="cvvCode" /></td>
+			<td><form:input type="text" path="expDate" /></td> --%>
+		</tr>
+	</table>
+
 	<div style="overflow-x: auto;">
-		<form:form modelAttribute="shipping" method="post" action="/MyLaptop">
+		<form:form method="post" action="/MyLaptop">
 			<table border="1" width=900>
 				<tr>
 					<th>Name</th>
@@ -87,12 +87,19 @@ tr:nth-child(even) {
 					<th>ZIP</th>
 				</tr>
 				<tr>
-					<td><form:input type="text" path="name" /></td>
+				<td><c:out value="${shippingInfo.name}" /></td>
+				<td><c:out value="${shippingInfo.addLine1}" /></td>
+				<td><c:out value="${shippingInfo.addLine2}" /></td>
+				<td><c:out value="${shippingInfo.city}" /></td>
+				<td><c:out value="${shippingInfo.state}" /></td>
+				<td><c:out value="${shippingInfo.zip}" /></td>
+		
+					<%-- <td><form:input type="text" path="name" /></td>
 					<td><form:input type="text" path="addLine1" /></td>
 					<td><form:input type="text" path="addLine2" /></td>
 					<td><form:input type="text" path="city" /></td>
 					<td><form:input type="text" path="state" /></td>
-					<td><form:input type="text" path="zip" /></td>
+					<td><form:input type="text" path="zip" /></td> --%>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" value="Return"></td>
@@ -100,7 +107,7 @@ tr:nth-child(even) {
 			</table>
 		</form:form>
 	</div>
-	
+
 	<jsp:include page="footer.jsp" />
 </body>
 </html>

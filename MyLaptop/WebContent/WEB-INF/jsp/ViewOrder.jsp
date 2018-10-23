@@ -39,8 +39,7 @@ tr:nth-child(even) {
 
 	<br>
 
-	<form:form modelAttribute="vieworder" method="post"
-		action="confirmOrder">
+	<form:form method="post" action="confirmOrder">
 		<table border="1" width=900>
 			<tr>
 				<th>Name</th>
@@ -48,13 +47,12 @@ tr:nth-child(even) {
 				<th>Quantity</th>
 				<th>Order ID</th>
 			</tr>
-			<c:forEach items="${vieworder.lineItems}" var="item" varStatus="loop">
+			<c:forEach items="${order.lineItems}" var="item" varStatus="loop">
 				<tr>
-					<td><form:input path="lineItems[${loop.index}].itemName"
-							readonly="True" /></td>
-					<td><form:input path="lineItems[${loop.index}].price" /></td>
-					<td><form:input path="lineItems[${loop.index}].quantity" /></td>
-				
+					<td><c:out value="${item.itemName}" /></td>
+					<td><c:out value="${item.price}" /></td>
+					<td><c:out value="${item.quantity}" /></td>
+
 				</tr>
 			</c:forEach>
 			<tr>

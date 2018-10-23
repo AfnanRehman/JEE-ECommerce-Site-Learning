@@ -23,4 +23,5 @@ public class Inventory implements Serializable{
 	public void setList(List<Item> list) {
 		this.list = list;
 	}
+
 }

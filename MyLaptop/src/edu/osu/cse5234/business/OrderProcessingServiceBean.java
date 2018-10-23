@@ -46,4 +46,5 @@ public class OrderProcessingServiceBean {
     	return ServiceLocator.getInventoryService().validateQuantity(order.getItems());
     }
     
+
 }

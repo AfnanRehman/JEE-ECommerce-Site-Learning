@@ -10,7 +10,7 @@ public class LineItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID")
 	private int id;
-	@Column(name="ITEM_ID")
+	@Column(name="ITEM_NUMBER")
 	private int itemNumber;
 	@Column(name="ITEM_NAME")
 	private String itemName;

@@ -30,11 +30,12 @@
 				</tr>
 
 				<c:forEach items="${order.lineItems}" var="item" varStatus="loop">
-					<form:hidden path="lineItems[${loop.index}].itemNumber"
-						value="${item.itemNumber}" />
+
 					<tr>
 
 
+						<form:hidden path="lineItems[${loop.index}].itemNumber"
+							value="${item.itemNumber}" />
 						<td><c:out value="${item.itemName}" /> <form:hidden
 								path="lineItems[${loop.index}].itemName"
 								value="${item.itemName}" /></td>

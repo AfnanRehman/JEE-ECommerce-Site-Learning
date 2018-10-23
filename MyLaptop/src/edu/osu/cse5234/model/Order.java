@@ -76,11 +76,6 @@ public class Order {
 		this.lineItems = lineItems;
 	}
 	
-//	public void truncateLineItems() {
-//		for(LineItem l:this.lineItems) {
-//			if(l.getQuantity()<=0) this.lineItems.remove(l);
-//		}
-//	}
 	
 	public List<Item> getItems(){
 		List<Item> res=new ArrayList<>();
