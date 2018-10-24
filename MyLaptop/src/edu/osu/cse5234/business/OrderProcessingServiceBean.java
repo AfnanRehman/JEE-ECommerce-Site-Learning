@@ -24,17 +24,14 @@ public class OrderProcessingServiceBean {
      * Default constructor. 
      */
     public OrderProcessingServiceBean() {
-        // TODO Auto-generated constructor stub
     }
     
     public String processOrder(Order order) {
-    	// TODO
     	
     	if(validateItemAvailability(order)){
     		confirmationcode++;
     		entityManager.persist(order);
     		entityManager.flush();
-//    		is.updateInventory(order.getItems());
     		
     	}
     	

@@ -103,7 +103,7 @@ public class Purchase {
 
 		order.setPayment(paymentInfo);
 		order.setShipping(shippingInfo);
-		order.setCustomerName(paymentInfo.getHolderName()); // TODO
+		order.setCustomerName(paymentInfo.getHolderName());
 		order.setEmailAddress(shippingInfo.getEmail());
 		String confirmCode = ServiceLocator.getOrderProcessingService().processOrder(order);
 		request.getSession().setAttribute("confirmCode", confirmCode);

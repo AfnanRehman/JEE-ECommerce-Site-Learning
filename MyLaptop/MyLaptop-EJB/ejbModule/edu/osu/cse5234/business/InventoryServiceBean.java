@@ -60,12 +60,6 @@ public class InventoryServiceBean implements InventoryService {
 
 	@Override
 	public boolean updateInventory(List<Item> items) {
-		// TODO Auto-generated method stub
-//		for (int i = 0; i < items.size(); i++) {
-//			int inv_count = itemList.get(i).getQuantity();
-//			int ord_count = items.get(i).getQuantity();
-//			itemList.get(i).setQuantity(inv_count - ord_count);
-//		}
 		return true;
 	}
 
