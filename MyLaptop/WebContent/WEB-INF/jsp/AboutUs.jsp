@@ -46,7 +46,7 @@
 				<td>
 					<ul>
 						<li>Afnan Rehman</li>
-						<li>CFO</li>
+						<li>CTO</li>
 						<li>Education: The Ohio State University</li>
 					</ul>
 				</td>
