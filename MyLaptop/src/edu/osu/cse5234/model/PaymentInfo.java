@@ -19,6 +19,9 @@ public class PaymentInfo {
 	private String cvvCode;
 	@Column(name="HOLDER_NAME")
 	private String holderName;
+	
+	@Column(name="CON_NUM")
+	private String  confirmationNumber;
 
 	public PaymentInfo() { }
 
@@ -61,6 +64,15 @@ public class PaymentInfo {
 	public void setHolderName(String holderName) {
 		this.holderName = holderName;
 	}
+
+	public String getConfirmationNumber() {
+		return confirmationNumber;
+	}
+
+	public void setConfirmationNumber(String confirmationNumber) {
+		this.confirmationNumber = confirmationNumber;
+	}
+	
 	
 	
 }

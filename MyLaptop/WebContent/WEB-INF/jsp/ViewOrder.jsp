@@ -52,6 +52,7 @@ tr:nth-child(even) {
 					<td><c:out value="${item.itemName}" /></td>
 					<td><c:out value="${item.price}" /></td>
 					<td><c:out value="${item.quantity}" /></td>
+					<td><c:out value="${payment.confirmationNumber}" /></td>
 
 				</tr>
 			</c:forEach>
