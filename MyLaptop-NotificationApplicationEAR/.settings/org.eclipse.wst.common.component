@@ -5,5 +5,9 @@
             <dependent-object>Module_1541629332404</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="MyLaptop-InventoryBatchApplication.war" deploy-path="/" handle="module:/resource/MyLaptop-InventoryBatchApplication/MyLaptop-InventoryBatchApplication">
+            <dependent-object>Module_1541965723915</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>

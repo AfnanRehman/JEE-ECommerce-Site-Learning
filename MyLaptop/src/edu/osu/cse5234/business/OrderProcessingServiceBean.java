@@ -47,7 +47,7 @@ public class OrderProcessingServiceBean {
     		confirmationcode++;
     		entityManager.persist(order);
     		entityManager.flush();
-    		
+    		notifyUser();
     	}
     	return confirmationcode+"";
     }
