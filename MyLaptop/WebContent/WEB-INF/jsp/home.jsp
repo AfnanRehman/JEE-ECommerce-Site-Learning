@@ -20,15 +20,13 @@
 	<p align="center">Our mission is to provide used laptops and
 		technology to the masses at competitive prices.</p>
 	<h2 align="center">Our Vision</h2>
-	<p align="center">Our mission is to provide used laptops and
-		technology to the masses at competitive prices.</p>
+	<p align="center">Our vision is a world where everyone can afford
+		a laptop and be connected to the world around them.</p>
 	<h2 align="center">Our Business Strategy</h2>
-	<p align="center">...</p>
-	<h2 align="center">Products offer</h2>
+	<p align="center">Lean web design and inventory systems allow us 
+		to keep overhead, and thus prices, low.</p>
+	<h2 align="center">Products Offered</h2>
 	<p align="center"></p>
-	<h2 align="center">Our Vision</h2>
-	<p align="center">Our mission is to provide used laptops and
-		technology to the masses at competitive prices.</p>
 	<br>
 	<jsp:include page="footer.jsp" />
 
